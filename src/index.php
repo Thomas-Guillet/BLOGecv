@@ -58,7 +58,8 @@ include_once "controller/setup_index.php";
       <div id='connexion'>
         <div class="success" style="display:none">Bienvenue !</div>
         <a href="/"><img src="img/black-cross.png"></a>
-        <h1>BLOG<span>ecv</span></h1>
+          <h1>BLOG<span class="ecv">ecv</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
+
         <form>
           <input id="email" type="text" placeholder="EMAIL"><br/>
           <input id="password" type="password" placeholder="PASSWORD">
@@ -69,7 +70,7 @@ include_once "controller/setup_index.php";
     ?>
       <div class="container">
         <div id="content">
-          <h1>BLOG<span>ecv</span></h1>
+          <h1>BLOG<span class="ecv">ecv</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
           <div id="menu">
             <ul>
               <li>
@@ -131,6 +132,25 @@ include_once "controller/setup_index.php";
 </html>
 
 <div class="loadingforupload" style="display:block">
+</div>
+
+<div id="modal-action" style="display: none">
+  <div class="modal">
+    <div class="title">
+      Title
+    </div>
+    <hr>
+    <div class="content">
+      feyziblkfbpze azfizb
+    </div>
+    <div class="action">
+      <button id='valid-modal'>Valider</button>
+      <button id='cancel-modal'>Annuler</button>
+    </div>
+    <div class="logo">
+      <h1>BLOG<span class="ecv">ecv</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
+    </div>
+  </div>
 </div>
 
 

@@ -86,9 +86,20 @@ a:hover{
     margin-bottom: 60px;
 
 }
-#content h1 span{
-	color: #F83030;
-	font: normal 100 39px Open Sans;
+#content span{
+    font: normal 100 39px Open Sans;
+}
+#content span.ecv{
+    color: #F83030;
+}
+#content span.dot-1{
+    color: #FDC300;
+}
+#content span.dot-2{
+    color: #17A0E4;
+}
+#content span.dot-3{
+    color: #75B844;
 }
 
 #menu{
@@ -175,6 +186,83 @@ a:hover{
     text-align: center;
     color: #FFF;
 }
+#modal-action{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 1);
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+}
+#modal-action .title{
+    font-size: 20px;
+    font-family: roboto;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+}
+#modal-action .content{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    font-family: roboto;
+    font-size: 18px;
+}
+#modal-action .action button{
+    border: 0;
+    height: 50px;
+    width: 150px;
+    color: white;
+    font-family: roboto;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#modal-action hr{
+     margin-top: 0px;
+}
+#valid-modal{
+    background-color: #75B844;
+}
+#cancel-modal{
+    background-color: #F83030;
+}
+#modal-action .logo h1{
+    text-align: center;
+    font: normal bold 66px Open Sans;
+}
+#modal-action .logo span{
+    font: normal 100 39px Open Sans;
+}
+#modal-action .logo span.ecv{
+    color: #F83030;
+}
+#modal-action .logo span.dot-1{
+    color: #FDC300;
+}
+#modal-action .logo span.dot-2{
+    color: #17A0E4;
+}
+#modal-action .logo span.dot-3{
+    color: #75B844;
+}
+.modal{
+    position: fixed;
+    color: black;
+    height: 100%;
+    width: 400px;
+    background-color: white;
+    border: 3px solid black;
+    display: block;
+    overflow: hidden;
+    z-index: 10500;
+    left: 50%;
+    margin-left: -200px;
+}
 
 #connexion{
 	position: fixed;
@@ -194,9 +282,20 @@ a:hover{
     margin-bottom: 60px;
 
 }
-#connexion h1 span{
-	color: #F83030;
-	font: normal 100 39px Open Sans;
+#connexion span{
+    font: normal 100 39px Open Sans;
+}
+#connexion span.ecv{
+    color: #F83030;
+}
+#connexion span.dot-1{
+    color: #FDC300;
+}
+#connexion span.dot-2{
+    color: #17A0E4;
+}
+#connexion span.dot-3{
+    color: #75B844;
 }
 #connexion img{
 	position: absolute;
