@@ -136,12 +136,10 @@ include_once "controller/setup_index.php";
 
 <div id="modal-action" style="display: none">
   <div class="modal">
-    <div class="title">
-      Title
+    <div id="modal-title" class="title">
     </div>
     <hr>
-    <div class="content">
-      feyziblkfbpze azfizb
+    <div id="modal-content" class="content">
     </div>
     <div class="action">
       <button id='valid-modal'>Valider</button>
@@ -152,8 +150,6 @@ include_once "controller/setup_index.php";
     </div>
   </div>
 </div>
-
-
 
 <script>
 $( document ).ready(function() {
@@ -168,7 +164,11 @@ $('a').click(function(e){
 $('#cancel-modal').click(function(){
   $('#modal-action').fadeOut();
 })
-
+</script>
+<?php
+if($action == 'connexion'){
+?>
+<script>
 $(document).keypress(function(e) {
     if(e.which == 13) {
       var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -179,7 +179,7 @@ $(document).keypress(function(e) {
       }else if(!testEmail.test(mail)){
         alert('veuillez entrer un email valide');
       }else if(password ==""){
-        alert('veuillez remplir votre mot de passe  ');
+        alert('veuillez remplir votre mot de passe');
       }else{
         $.ajax({
           url: "controller/connexion.php",
@@ -199,7 +199,7 @@ $(document).keypress(function(e) {
       }
     }
 });
-
-
-
 </script>
+<?php
+}
+?>
