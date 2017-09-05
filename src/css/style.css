@@ -436,3 +436,30 @@ a:hover{
 .content-comment{
     margin-bottom: 40px;
 }
+#create-commentaire input{
+    background: none;
+    border: 0;
+    font-family: roboto;
+    color: black;
+}
+#create-commentaire input:focus{
+    outline: none;
+}
+#create-commentaire button{
+    float: right;
+    background-color: black;
+    color: white;
+    border: 0;
+    height: 28px;
+    line-height: 28px;
+    font-family: roboto;
+    text-transform: uppercase;
+}
+#create-commentaire textarea{
+    width: 100%;
+    border: 0;
+    resize: vertical;
+}
+#create-commentaire textarea:focus{
+    outline: none;
+}

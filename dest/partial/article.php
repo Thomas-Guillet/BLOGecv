@@ -54,13 +54,17 @@
 				<?php
 				}
 				?>
+				<div id="create-commentaire">
+					<div class="row header-comment">
+						<input type="text" placeholder="Votre pseudo">
+						<button>Envoyer</button>
+					</div>
+					<textarea placeholder="Ecrivez votre commentaire ici..."></textarea>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-6">
-			<div class="create-commentaire">
-				<input type="text" placeholder="Votre pseudo">
-				<textarea></textarea>
-			</div>
+			
 		</div>
 	</div>
 </div>
