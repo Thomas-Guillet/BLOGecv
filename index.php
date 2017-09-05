@@ -25,12 +25,14 @@ include_once "controller/setup_index.php";
     <div id="navbar">
       <ul>
         <li>
-          <a href="#">
+          <a href="/">
             Home
           </a>
         </li>
         <?php if(isset($_SESSION['id'])){
             echo '<li><a href="/?new">Nouvel Article</a></li>';
+            echo '<li><a href="/?all_articles">Liste des Articles</a></li>';
+
           }
         ?>
         <li>

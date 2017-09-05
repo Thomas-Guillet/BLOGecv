@@ -29,3 +29,12 @@ function saveNewArticle($vars){
             ));
     return $bdd->lastInsertId();
 }
+function getAllArticles(){
+	global $bdd;
+	$sth = $bdd->prepare("SELECT * FROM article AS a INNER JOIN user AS u ON a.user_id = u.id WHERE a.state = 'enable' OR a.state = 'pending' ORDER BY a.id DESC");
+	$sth->execute();
+
+	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+
+	return $result;
+}

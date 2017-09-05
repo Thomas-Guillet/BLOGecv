@@ -257,3 +257,28 @@ a:hover{
     margin-top: 30px;
     float: right;
 }
+
+#edit_article{
+    width: 60px;
+    height: 33px;
+    background-color: black;
+    color: white;
+    border: 0;
+    font-family: roboto;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+#delete_article{
+    width: 60px;
+    height: 33px;
+    background-color: #F83030;
+    color: white;
+    border: 0;
+    font-family: roboto;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+#list .table>tbody>tr>td{
+    vertical-align: middle;
+    font-family: roboto;
+}

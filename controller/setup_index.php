@@ -18,6 +18,7 @@ if(isset($_GET['article']) && isset($_GET['id'])){
 	}
 }else if(isset($_GET['all_articles'])){
 	$action = 'list_article';
+	$list_article = getAllArticles();
 }else{
 	$action = 'home';
 }
