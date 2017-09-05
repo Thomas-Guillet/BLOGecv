@@ -165,6 +165,10 @@ $('a').click(function(e){
   $('.loadingforupload').fadeToggle(10, "linear");
 });
 
+$('#cancel-modal').click(function(){
+  $('#modal-action').fadeOut();
+})
+
 $(document).keypress(function(e) {
     if(e.which == 13) {
       var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
