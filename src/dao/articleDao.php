@@ -1,7 +1,7 @@
 <?php
 function getAllActiveArticles(){
 	global $bdd;
-	$sth = $bdd->prepare("SELECT * FROM article WHERE state = 'enable'");
+	$sth = $bdd->prepare("SELECT * FROM article WHERE state = 'enable' ORDER BY id DESC");
 	$sth->execute();
 
 	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
@@ -29,6 +29,16 @@ function saveNewArticle($vars){
             ));
     return $bdd->lastInsertId();
 }
+function updateStateArticle($vars){
+	global $bdd;
+
+	$req = $bdd->prepare("UPDATE article SET state = :state WHERE id = :article_id");
+    $req->execute(array(
+            "state" => $vars['state'],
+            "article_id" => $vars['article_id']
+            ));
+    return $req->rowCount();
+}
 function getAllArticles(){
 	global $bdd;
 	$sth = $bdd->prepare("SELECT * FROM article AS a INNER JOIN user AS u ON a.user_id = u.id WHERE a.state = 'enable' OR a.state = 'pending' ORDER BY a.id DESC");
@@ -36,5 +46,13 @@ function getAllArticles(){
 
 	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 
+	return $result;
+}
+function getArticleComment($id){
+	global $bdd;
+	$sth = $bdd->prepare("SELECT * FROM commentaire AS c INNER JOIN commentaire_article AS ca ON ca.commentaire_id = c.id WHERE c.state = 'enable' AND ca.article_id = $id ORDER BY c.id DESC");
+	$sth->execute();
+
+	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 	return $result;
 }

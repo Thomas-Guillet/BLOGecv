@@ -159,9 +159,11 @@ a:hover{
 }
 
 #main-article .title{
-	font-family: roboto;
+	text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: roboto;
     font-weight: bold;
-    font-size: 18px;
 }
 #main-article img{
 	margin: 30px;
@@ -190,7 +192,7 @@ a:hover{
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 10000;
     height: 100%;
     width: 100%;
@@ -394,6 +396,7 @@ a:hover{
     text-transform: uppercase;
     font-size: 17px;
     margin: 30px;
+    margin-top: 0px;
 }
 #admin-action .display{
     background-color: cornflowerblue;
@@ -406,4 +409,30 @@ a:hover{
 }
 #admin-action .edit{
     background-color: black;    
+}
+
+#comment{
+    font-family: roboto;
+}
+#comment .title{
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.pseudo-comment{
+    float: left;
+    text-transform: capitalize;
+}
+.date-comment{
+    float: right;
+}
+.header-comment{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 3px solid black;
+    margin-bottom: 10px;
+}
+.content-comment{
+    margin-bottom: 40px;
 }

@@ -20,9 +20,49 @@
 	?>	
 </div>
 <div id="main-article">
-	<div class="title"><?= $article['title'] ?></div>
+	<div class="title"><?= html_entity_decode($article['title']) ?></div>
 	<div class="img"><img src="<?= $article['media'] ?>"></div>
-	<div class="content"><?= $article['content'] ?></div>
+	<div class="content"><?= html_entity_decode($article['content']) ?></div>
+</div>
+<hr/>
+<div id="comment">
+	<div class="title">
+		Espace commentaires
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="list-commentaires">
+				<?php
+				foreach ($list_commentaires as $commentaire) {
+					if($commentaire[0]['pseudo'] == null){
+						$pseudo = 'Anonyme';
+					}else{
+						$pseudo = $commentaire[0]['pseudo'];
+					}
+				?>
+				<div class="row header-comment">
+					<div class="pseudo-comment">
+						Par <?= $pseudo ?>
+					</div>
+					<div class="date-comment">
+						Le <?= $commentaire[0]['created_at'] ?>
+					</div>
+				</div>
+				<div class="content-comment">
+					<?= $commentaire[0]['content'] ?>
+				</div>
+				<?php
+				}
+				?>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="create-commentaire">
+				<input type="text" placeholder="Votre pseudo">
+				<textarea></textarea>
+			</div>
+		</div>
+	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -32,12 +72,16 @@ $( document ).ready(function() {
 		var article_id = $(this).data("id");
 		var action = $(this).data("action");
 		var content = '';
+		var link_action = '';
 		if(action == 'display'){
 			content = 'Êtes-vous sûr de vouloir afficher cet article ?';
+			link_action = '/controller/action?display_article&id='+article_id;
 		}else if(action =='pending'){
 			content = 'Êtes-vous sûr de vouloir retirer de l\'affichage cet article ?';
+			link_action = '/controller/action?remove_article&id='+article_id;
 		}else if(action == 'delete'){
 			content = 'Êtes-vous sûr de vouloir supprimer définitivement cet article ?';
+			link_action = '/controller/action?delete_article&id='+article_id;
 		}
 		$.ajax({
 	          url: "../controller/returnarticle.php",
@@ -47,6 +91,9 @@ $( document ).ready(function() {
 	          	$('#modal-title').html(response['title']);
 	          	$('#modal-content').html(content);
 	          	$('#modal-action').fadeIn();
+	          	$('#valid-modal').click(function(){
+	          		window.location.href = link_action;
+				})
 	          },
 			    error: function (request,status, error) {
 		            console.log(error);

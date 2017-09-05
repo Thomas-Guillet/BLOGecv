@@ -5,6 +5,7 @@ if(isset($_GET['article']) && isset($_GET['id'])){
 	$action = 'article';
 	$id = $_GET['id'];
 	$article = getArticle($id);
+	$list_commentaires = getArticleComment($id);
 }else if(isset($_GET['connexion'])){
 	$action = 'connexion';
 }else if(isset($_GET['logout'])){

@@ -107,7 +107,7 @@ include_once "controller/setup_index.php";
                 ?>
               </div>
               <div class="col-md-3 about">
-                About Me
+                About Us
                 <img src="http://www.letudiant.fr/static/uploads/plugoBrowser/ETU_ETU/OSP/ecv-terre_image.gif">
               </div>
             </div>
@@ -162,8 +162,9 @@ $('a').click(function(e){
 });
 
 $('#cancel-modal').click(function(){
+  $('#valid-modal').prop('onclick',null).off('click');
   $('#modal-action').fadeOut();
-})
+});
 </script>
 <?php
 if($action == 'connexion'){
