@@ -56,3 +56,13 @@ function getArticleComment($id){
 	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 	return $result;
 }
+function saveNewCommentaire($vars){
+	global $bdd;
+
+	$req = $bdd->prepare("INSERT INTO article (pseudo, content) VALUES (:title, :content)");
+    $req->execute(array(
+            "title" => $vars['pseudo'], 
+            "content" => $vars['content']
+            ));
+    return $bdd->lastInsertId();
+}
