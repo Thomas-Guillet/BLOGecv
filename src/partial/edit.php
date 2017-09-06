@@ -70,13 +70,13 @@ $('[id^="action"]').click(function(){
     var link_action = '';
     if(action == 'display'){
       content = 'Êtes-vous sûr de vouloir afficher cet article ?';
-      link_action = '/controller/action?display_article&id='+article_id;
+      link_action = '/controller/action.php?display_article&id='+article_id;
     }else if(action =='pending'){
       content = 'Êtes-vous sûr de vouloir retirer de l\'affichage cet article ?';
-      link_action = '/controller/action?remove_article&id='+article_id;
+      link_action = '/controller/action.php?remove_article&id='+article_id;
     }else if(action == 'delete'){
       content = 'Êtes-vous sûr de vouloir supprimer définitivement cet article ?';
-      link_action = '/controller/action?delete_article&id='+article_id;
+      link_action = '/controller/action.php?delete_article&id='+article_id;
     }else if(action == 'edit'){
             window.location.href = '/?edit&id='+article_id;
     }

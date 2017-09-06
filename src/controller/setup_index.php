@@ -20,6 +20,7 @@ if(isset($_GET['article']) && isset($_GET['id'])){
 	$action = 'connexion';
 }else if(isset($_GET['logout'])){
 	session_destroy();
+	$action = 'home';
 	header('Location: /'); 
 }else if(isset($_GET['new'])){
 	$list_tag = getAllTags();
