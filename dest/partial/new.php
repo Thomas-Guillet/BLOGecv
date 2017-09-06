@@ -5,7 +5,7 @@
             <?php
             foreach ($list_tag as $key => $value) {
             ?>
-            <input id="toggle<?= $key ?>" type="checkbox" onclick="clickCheck(this);" >
+            <input id="toggle<?= $key ?>" name="tag_<?= $key ?>" type="checkbox" onclick="clickCheck(this);" >
             <label for="toggle<?= $key ?>"><?= $value[0]['label'] ?></label>
             <?php
             }
@@ -21,7 +21,7 @@
 <script>
 tinymce.init({
   selector: 'textarea',
-  height: 500,
+  height: 300,
   menubar: false,
   plugins: [
     'advlist autolink lists link image charmap print preview anchor textcolor',

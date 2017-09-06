@@ -21,6 +21,18 @@
           <p>
             <input type="hidden" name="article_id" value="<?= $article['id'] ?>" />
       <input type="text" name="title" placeholder="Title" value="<?= $article['title'] ?>">
+      <?php
+            foreach ($list_tag as $key => $value) {
+              $checked = '';
+              if(isset($list_checked_tag[$key])){
+                $checked = 'checked';
+              }
+            ?>
+            <input id="toggle<?= $key ?>" name="tag_<?= $key ?>" type="checkbox" onclick="clickCheck(this);" <?= $checked ?>>
+            <label for="toggle<?= $key ?>"><?= $value[0]['label'] ?></label>
+            <?php
+            }
+            ?>
             <input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
             <input name="fichier" type="file" id="fichier_a_uploader" />
 			<textarea name="content"><?= $article['content'] ?></textarea>
@@ -34,7 +46,7 @@
 <script>
 tinymce.init({
   selector: 'textarea',
-  height: 500,
+  height: 300,
   menubar: false,
   plugins: [
     'advlist autolink lists link image charmap print preview anchor textcolor',

@@ -1,6 +1,6 @@
 <?php
 include_once "../connect.php";
-
+include_once "../dao/tagDao.php";
 include_once "../dao/articleDao.php";
 
 define('TARGET', '../media/');
@@ -45,6 +45,13 @@ if(!empty($_POST))
             $vars['content'] = htmlentities($_POST['content']);
             $vars['user_id'] = $_SESSION['id'];
             $article = saveNewArticle($vars);
+            foreach($_POST as $key => $value) {
+              if (strpos($key, 'tag') === 0) {
+                $tag = explode('_', $key);
+                $tag_id = $tag[1];
+                $tag = saveNewTag($article, $tag_id);
+              }
+            }
             header("Location: /?article&id=".$article);
           }
           else

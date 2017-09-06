@@ -1,6 +1,6 @@
 <?php
 include_once "../connect.php";
-
+include_once "../dao/tagDao.php";
 include_once "../dao/articleDao.php";
 
 define('TARGET', '../media/');
@@ -45,6 +45,14 @@ if(!empty($_POST))
             $vars['title'] = htmlentities($_POST['title']);
             $vars['content'] = htmlentities($_POST['content']);
             $article = updateArticle($vars);
+            deleteTagArticle($_POST['article_id']);
+            foreach($_POST as $key => $value) {
+              if (strpos($key, 'tag') === 0) {
+                $tag = explode('_', $key);
+                $tag_id = $tag[1];
+                $tag = saveNewTag($_POST['article_id'], $tag_id);
+              }
+            }
             header("Location: /?article&id=".$_POST['article_id']);
           }
           else
@@ -75,6 +83,14 @@ if(!empty($_POST))
     $vars['title'] = htmlentities($_POST['title']);
     $vars['content'] = htmlentities($_POST['content']);
     $article = updateArticle($vars);
+    deleteTagArticle($_POST['article_id']);
+    foreach($_POST as $key => $value) {
+      if (strpos($key, 'tag') === 0) {
+        $tag = explode('_', $key);
+        $tag_id = $tag[1];
+        $tag = saveNewTag($_POST['article_id'], $tag_id);
+      }
+    }
     header("Location: /?article&id=".$_POST['article_id']);
   }
   if(isset($message)){

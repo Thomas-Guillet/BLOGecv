@@ -88,7 +88,7 @@ include_once "controller/setup_index.php";
             <div class="row">
               <div class="col-md-9">
                 <?php
-                if($action == 'home'){
+                if($action == 'home' || $action == 'tag'){
                   include_once('partial/home.php');
                 }else if($action == 'article'){
                   include_once('partial/article.php');

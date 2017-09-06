@@ -10,7 +10,7 @@ function getAllActiveArticles(){
 }
 function getArticle($id){
 	global $bdd;
-	$sth = $bdd->prepare("SELECT * FROM article WHERE id = $id");
+	$sth = $bdd->prepare("SELECT * FROM article AS a INNER JOIN user AS u ON a.user_id = u.id WHERE a.id = $id");
 	$sth->execute();
 
 	$result = $sth->fetch();

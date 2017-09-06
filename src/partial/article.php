@@ -20,7 +20,7 @@
 	?>	
 </div>
 <div id="info-article">
-	Par Joseph le 28 octobre 2201
+	Par <?= $article['name'] ?> le <?= $article['created_at'] ?>
 	<?php
 	foreach ($list_tag as $key => $value) {
 	?>
