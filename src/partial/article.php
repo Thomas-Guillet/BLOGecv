@@ -19,6 +19,16 @@
 	}
 	?>	
 </div>
+<div id="info-article">
+	Par Joseph le 28 octobre 2201
+	<?php
+	foreach ($list_tag as $key => $value) {
+	?>
+		<div class="tag">'<?= $value[0]['label'] ?></div>
+	<?php
+	}
+	?>
+</div>
 <div id="main-article">
 	<div class="title"><?= html_entity_decode($article['title']) ?></div>
 	<div class="img"><img src="<?= $article['media'] ?>"></div>
@@ -32,6 +42,13 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="list-commentaires">
+				<div id="create-commentaire">
+					<div class="row header-comment">
+						<input id='pseudo-commentaire' type="text" placeholder="Votre pseudo">
+						<button id='save-new-commentaire' data-article-id="<?= $article['id'] ?>">Envoyer</button>
+					</div>
+					<textarea id='content-commentaire'placeholder="Ecrivez votre commentaire ici..."></textarea>
+				</div>
 				<?php
 				foreach ($list_commentaires as $commentaire) {
 					if($commentaire[0]['pseudo'] == null){
@@ -64,13 +81,6 @@
 				<?php
 				}
 				?>
-				<div id="create-commentaire">
-					<div class="row header-comment">
-						<input id='pseudo-commentaire' type="text" placeholder="Votre pseudo">
-						<button id='save-new-commentaire' data-article-id="<?= $article['id'] ?>">Envoyer</button>
-					</div>
-					<textarea id='content-commentaire'placeholder="Ecrivez votre commentaire ici..."></textarea>
-				</div>
 			</div>
 		</div>
 		<div class="col-md-6">

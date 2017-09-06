@@ -14,6 +14,8 @@ include_once "controller/setup_index.php";
 
     <title>ECV BLOG<?php if($action=='article'){echo ' - '.$article['title'];} ?></title>
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,9 +68,7 @@ include_once "controller/setup_index.php";
           <div id="menu">
             <ul>
               <li>
-                <a href="/">
                   TOP TAGS :
-                </a>
               </li>
               <?php
               foreach ($flame_tag as $key => $tag) {
