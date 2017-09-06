@@ -559,8 +559,69 @@ a:hover{
   color: white
 }
 
+#last-article{
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+}
+#last-article .background{
+    bottom: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -moz-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+}
+#last-article .content{
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 115px;
+    /* margin-top: -115px; */
+    color: white;
+    font-family: open sans;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    font-size: 29px;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    white-space:nowrap;
+}
+#last-article .tag{
+    background-color: #f83030;
+    color: white;
+    font-family: roboto;
+    text-transform: uppercase;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    border-radius: 4px;
+    font-size: 11px;
+    float: left;
+    margin-right: 3px;
+}
+#last-article .tags{
+    margin-top: -25px;
+    margin-left: 5px;
+}
 
-
-
-
-
+#last-article:hover{
+    cursor: pointer;
+}
+#last-article:hover > .background{
+    -moz-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);  
+}

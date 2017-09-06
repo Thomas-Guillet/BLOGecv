@@ -2,6 +2,9 @@
   if($html_row_1 == '' && $html_row_2 == '' && $html_row_3 == ''){
   	echo 'Cette catégorie ne dispose pas encore d\'articles !';
   }
+  if($action == 'home'){
+  	echo $last_article;
+  }
 ?>
 <div class="col-md-4">
   <?= $html_row_1 ?>

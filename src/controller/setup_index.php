@@ -1,12 +1,11 @@
 <?php
-include_once "/../connect.php";
-include_once "/../dao/viewDao.php";
-include_once "/../dao/tagDao.php";
+include_once "./connect.php";
+include_once "./dao/viewDao.php";
+include_once "./dao/tagDao.php";
 $action = '';
 
 $flame_tag = getTagCount();
 $all_tags = getAllTags();
-
 if(isset($_GET['article']) && isset($_GET['id'])){
 	$action = 'article';
 	$id = $_GET['id'];
@@ -62,20 +61,24 @@ if($action == 'home'){
 	$html_row_1 = '';
 	$html_row_2 = '';
 	$html_row_3 = '';
-	$indent = 1;
+	$indent = 0;
 	foreach ($list_articles as $key => $value) {
 		$data = array();
 		$data['id'] = $key;
 		$data['title'] = $value[0]['title'];
 		$data['picture'] = $value[0]['media'];
 		$list_tag = getTagByArticle($key);
-		$article = include('partial/preview_article.php');
-		if($indent % 3 == 1){
-			$html_row_1 .= $article;
-		}else if($indent % 3 == 2){
-			$html_row_2 .= $article;
-		}else if($indent % 3 == 0){
-			$html_row_3 .= $article;
+		if($indent == 0){
+			$last_article = include('partial/last_article.php');
+		}else{
+			$article = include('partial/preview_article.php');
+			if($indent % 3 == 1){
+				$html_row_1 .= $article;
+			}else if($indent % 3 == 2){
+				$html_row_2 .= $article;
+			}else if($indent % 3 == 0){
+				$html_row_3 .= $article;
+			}
 		}
 		$indent++;
 	}
