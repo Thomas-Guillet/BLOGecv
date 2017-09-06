@@ -37,14 +37,6 @@ include_once "controller/setup_index.php";
         ?>
         <li>
           <?php if(isset($_SESSION['id'])){
-            echo '<a href="#">'.$_SESSION['prenom'].'</a>';
-          }else{
-            echo '<a href="#">About</a>';
-          }
-          ?>
-        </li>
-        <li>
-          <?php if(isset($_SESSION['id'])){
             echo '<a href="?logout">Déconnexion</a>';
           }else{
             echo '<a href="?connexion">Connexion</a>';
@@ -75,19 +67,20 @@ include_once "controller/setup_index.php";
             <ul>
               <li>
                 <a href="/">
-                  Home
+                  TOP TAGS :
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  Exemple
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Categories
-                </a>
-              </li>
+              <?php
+              foreach ($flame_tag as $key => $tag) {
+                ?>
+                  <li>
+                    <a href="/?tag=<?= $key ?>">
+                      <?= $tag[0]['label'] ?>
+                    </a>
+                  </li>
+                <?php
+              }
+              ?>
             </ul>
           </div>
 
@@ -101,6 +94,8 @@ include_once "controller/setup_index.php";
                   include_once('partial/article.php');
                 }else if($action == 'new'){
                   include_once('partial/new.php');
+                }else if($action == 'edit'){
+                  include_once('partial/edit.php');
                 }else if($action == 'list_article'){
                   include_once('partial/list_article.php');
                 }

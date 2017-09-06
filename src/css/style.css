@@ -436,6 +436,25 @@ a:hover{
 .content-comment{
     margin-bottom: 40px;
 }
+.action-comment{
+    float: right;
+}
+.action-comment button{
+    border: 0;
+    color: white;
+    font-family: roboto;
+    text-transform: uppercase;
+    height: 27px;
+    line-height: 27px;
+    margin-right: 5px;
+}
+.valid-comment{
+    background-color: #75B844;
+}
+.delete-comment{
+    background-color: #F83030;
+}
+
 #create-commentaire input{
     background: none;
     border: 0;

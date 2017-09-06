@@ -29,6 +29,26 @@ function saveNewArticle($vars){
             ));
     return $bdd->lastInsertId();
 }
+function updateArticle($vars){
+	global $bdd;
+	if(!$vars['media']){
+		$req = $bdd->prepare("UPDATE article SET title = :title, content = :content WHERE id = :article_id");
+	    $req->execute(array(
+	            "title" => $vars['title'], 
+	            "content" => $vars['content'],
+	            "article_id" => $vars['article_id']
+	            ));
+	}else{
+		$req = $bdd->prepare("UPDATE article SET title = :title, content = :content, media = :media WHERE id = :article_id");
+	    $req->execute(array(
+	            "title" => $vars['title'], 
+	            "content" => $vars['content'],
+	            "media" => $vars['media'],
+	            "article_id" => $vars['article_id']
+	            ));		
+	}
+    return $req->rowCount();
+}
 function updateStateArticle($vars){
 	global $bdd;
 
@@ -56,13 +76,40 @@ function getArticleComment($id){
 	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
 	return $result;
 }
+function getArticleCommentAdmin($id){
+	global $bdd;
+	$sth = $bdd->prepare("SELECT * FROM commentaire AS c INNER JOIN commentaire_article AS ca ON ca.commentaire_id = c.id WHERE (c.state = 'enable' OR c.state ='pending') AND ca.article_id = $id ORDER BY c.id DESC");
+	$sth->execute();
+
+	$result = $sth->fetchAll(PDO::FETCH_ASSOC|PDO::FETCH_GROUP);
+	return $result;
+}
 function saveNewCommentaire($vars){
 	global $bdd;
 
-	$req = $bdd->prepare("INSERT INTO article (pseudo, content) VALUES (:title, :content)");
+	$req = $bdd->prepare("INSERT INTO commentaire (pseudo, content) VALUES (:pseudo, :content)");
     $req->execute(array(
-            "title" => $vars['pseudo'], 
+            "pseudo" => $vars['pseudo'], 
             "content" => $vars['content']
             ));
-    return $bdd->lastInsertId();
+
+    $commentaire_id = $bdd->lastInsertId();
+
+    $req = $bdd->prepare("INSERT INTO commentaire_article (commentaire_id, article_id) VALUES (:commentaire_id, :article_id)");
+    $req->execute(array(
+            "commentaire_id" => $commentaire_id, 
+            "article_id" => $vars['article_id']
+            ));
+
+    return $commentaire_id;
+}
+function admincommentaire($vars){
+	global $bdd;
+
+	$req = $bdd->prepare("UPDATE commentaire SET state = :state WHERE id = :commentaire_id");
+    $req->execute(array(
+            "state" => $vars['state'],
+            "commentaire_id" => $vars['commentaire_id']
+            ));
+    return $req->rowCount();
 }

@@ -40,26 +40,36 @@
 						$pseudo = $commentaire[0]['pseudo'];
 					}
 				?>
-				<div class="row header-comment">
-					<div class="pseudo-comment">
-						Par <?= $pseudo ?>
+					<div class="row header-comment">
+						<div class="pseudo-comment">
+							Par <?= $pseudo ?>
+						</div>
+						<div class="date-comment">
+							Le <?= $commentaire[0]['created_at'] ?>
+						</div>
+						<?php
+						if($commentaire[0]['state'] == 'pending'){
+						?>
+						<div class="action-comment">
+							<button class='valid-comment' id='admin-commentaire-<?= $commentaire[0]["id"] ?>' data-action='valid' data-id='<?= $commentaire[0]["id"] ?>'>Valider</button>
+							<button class='delete-comment' id='admin-commentaire-<?= $commentaire[0]["id"] ?>' data-action='delete' data-id='<?= $commentaire[0]["id"] ?>'>Refuser</button>
+						</div>
+						<?php
+						}
+						?>
 					</div>
-					<div class="date-comment">
-						Le <?= $commentaire[0]['created_at'] ?>
+					<div class="content-comment">
+						<?= $commentaire[0]['content'] ?>
 					</div>
-				</div>
-				<div class="content-comment">
-					<?= $commentaire[0]['content'] ?>
-				</div>
 				<?php
 				}
 				?>
 				<div id="create-commentaire">
 					<div class="row header-comment">
-						<input type="text" placeholder="Votre pseudo">
-						<button>Envoyer</button>
+						<input id='pseudo-commentaire' type="text" placeholder="Votre pseudo">
+						<button id='save-new-commentaire' data-article-id="<?= $article['id'] ?>">Envoyer</button>
 					</div>
-					<textarea placeholder="Ecrivez votre commentaire ici..."></textarea>
+					<textarea id='content-commentaire'placeholder="Ecrivez votre commentaire ici..."></textarea>
 				</div>
 			</div>
 		</div>
@@ -72,6 +82,48 @@
 <script src="js/bootstrap.min.js"></script>
 <script>
 $( document ).ready(function() {
+	$('#save-new-commentaire').click(function(){
+		var article_id = $(this).data("article-id");
+		var pseudo = $('#pseudo-commentaire').val();
+		var content = $('#content-commentaire').val();
+		if(pseudo == ''){
+			pseudo = null;
+		}
+		$.ajax({
+			url: "../controller/save_commentaire.php",
+			dataType: "text",
+			data: { article_id : article_id,
+					pseudo : pseudo,
+					content : content },
+			success: function(response) { 
+				$('#create-commentaire').html('<span style="font-family: roboto;font-size: 17px;">Votre commentaire à été envoyé et va être modéré avant affichage</span>');
+			},
+			error: function (request,status, error) {
+				console.log(error);
+				alert(status);
+			} 
+		});
+	});
+
+
+	$('[id^="admin-commentaire-"]').click(function(){
+		var commentaire_id = $(this).data("id");
+		var action = $(this).data("action");
+		$.ajax({
+			url: "../controller/admincommentaire.php",
+			data: { commentaire_id : commentaire_id,
+			action : action },
+			success: function(response) { 
+				location.reload();
+			},
+			error: function (request,status, error) {
+				console.log(error);
+				alert(status);
+			} 
+		});
+	});
+
+
 	$('[id^="action"]').click(function(){
 		var article_id = $(this).data("id");
 		var action = $(this).data("action");
@@ -86,6 +138,8 @@ $( document ).ready(function() {
 		}else if(action == 'delete'){
 			content = 'Êtes-vous sûr de vouloir supprimer définitivement cet article ?';
 			link_action = '/controller/action?delete_article&id='+article_id;
+		}else if(action == 'edit'){
+	          window.location.href = '/?edit&id='+article_id;
 		}
 		$.ajax({
 	          url: "../controller/returnarticle.php",
