@@ -28,6 +28,16 @@ a:hover{
 	color: #777777;
 }
 
+
+#menu-categorie{
+    background-color: white;
+}
+
+#menu button {
+    background-color: white;
+    padding-bottom: 8px;
+}
+
 #navbar{
 	height: 40px;
     z-index: 999;
@@ -194,6 +204,13 @@ a:hover{
     font-size: 13px;
 	border-left: 1px solid #f8f4f4;
 	padding: 20px;
+}
+.blog-content{
+    text-transform: none;
+    font-weight: 100;
+    font-family: roboto;
+    font-size: 14px;
+    text-align: justify;
 }
 .about img{
 	width:100%;

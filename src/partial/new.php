@@ -17,25 +17,11 @@
           </p>
     </form>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
-tinymce.init({
-  selector: 'textarea',
-  height: 300,
-  menubar: false,
-  plugins: [
-    'advlist autolink lists link image charmap print preview anchor textcolor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table contextmenu paste code help'
-  ],
-  toolbar: 'insert | undo redo |  styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tinymce.com/css/codepen.min.css']
-});
-</script>
-
-<script>
+$(document).ready(function(){
     var nbCheck = 0;
     function isChecked(elmt){
         if( elmt.checked ){
@@ -58,4 +44,20 @@ tinymce.init({
             elmt.checked = '';
         }
     }
+  });
+
+tinymce.init({
+  selector: 'textarea',
+  height: 300,
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor textcolor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code help'
+  ],
+  toolbar: 'insert | undo redo |  styleselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css']
+});
 </script>

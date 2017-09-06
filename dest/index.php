@@ -28,7 +28,7 @@ include_once "controller/setup_index.php";
       <ul>
         <li>
           <a href="/">
-            Home
+            Accueil
           </a>
         </li>
         <?php if(isset($_SESSION['id'])){
@@ -52,7 +52,7 @@ include_once "controller/setup_index.php";
       <div id='connexion'>
         <div class="success" style="display:none">Bienvenue !</div>
         <a href="/"><img src="img/black-cross.png"></a>
-          <h1>BLOG<span class="ecv">ecv</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
+          <h1>BLOG<span class="ecv">insight</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
 
         <form>
           <input id="email" type="text" placeholder="EMAIL"><br/>
@@ -64,23 +64,42 @@ include_once "controller/setup_index.php";
     ?>
       <div class="container">
         <div id="content">
-          <h1>BLOG<span class="ecv">ecv</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
+          <h1>BLOG<span class="ecv">insight</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
           <div id="menu">
             <ul>
               <li>
-                  TOP TAGS :
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                    <img height="30px" src="/img/dropdown-menu.png">
+                  </button>
+                  <ul class="dropdown-menu">
+                    <?php
+                      foreach ($all_tags as $key => $value) {
+                      ?>
+                        <li><a href="/?tag=<?= $key ?>"><?= $value[0]['label'] ?></a></li>
+                      <?php
+                      }
+                    ?>
+                      <li><a href="/">Tous les articles</a></li>
+                  </ul>
+                </div>
               </li>
-              <?php
-              foreach ($flame_tag as $key => $tag) {
-                ?>
-                  <li>
-                    <a href="/?tag=<?= $key ?>">
-                      <?= $tag[0]['label'] ?>
-                    </a>
-                  </li>
+              <div class="hidden-xs">
+                <li>
+                    TOP TAGS :
+                </li>
                 <?php
-              }
-              ?>
+                foreach ($flame_tag as $key => $tag) {
+                  ?>
+                    <li>
+                      <a href="/?tag=<?= $key ?>">
+                        <?= $tag[0]['label'] ?>
+                      </a>
+                    </li>
+                  <?php
+                }
+                ?>
+              </div>
             </ul>
           </div>
 
@@ -102,8 +121,11 @@ include_once "controller/setup_index.php";
                 ?>
               </div>
               <div class="col-md-3 about">
-                About Us
-                <img src="http://www.letudiant.fr/static/uploads/plugoBrowser/ETU_ETU/OSP/ecv-terre_image.gif">
+                à propos de nous
+                <img src="https://i.pinimg.com/736x/dc/3e/54/dc3e546cc1def8f269e5c91f1fd2bc91--cartoon-smiley-face-smiley-faces.jpg">
+                <div class="blog-content">
+                  Integer tincidunt, tortor et commodo finibus, tortor sapien lobortis libero, in convallis dui ex in nulla. Suspendisse arcu neque, facilisis ultricies venenatis id, varius sed nisl. Vivamus elementum elementum odio, eget pulvinar metus venenatis et. Vivamus luctus velit eget ante accumsan aliquet. Aenean enim ipsum, convallis et ornare et, ultricies vel nisi. Donec viverra nunc nec enim mollis, eget euismod velit vulputate. Phasellus cursus consequat finibus.
+                </div>
               </div>
             </div>
           </div>
@@ -141,7 +163,7 @@ include_once "controller/setup_index.php";
       <button id='cancel-modal'>Annuler</button>
     </div>
     <div class="logo">
-      <h1>BLOG<span class="ecv">ecv</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
+      <h1>BLOG<span class="ecv">insight</span><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h1>
     </div>
   </div>
 </div>

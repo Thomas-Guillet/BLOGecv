@@ -2,9 +2,9 @@
 <?php 
   if(isset($_SESSION['id'])){
     $html ='';
-    $display = '<button id="action-display-article" data-action="display" data-id="'.$article["id"].'" class="display">Display</button>';
-    $pending = '<button id="action-pending-article" data-action="pending" data-id="'.$article["id"].'" class="pending">Remove</button>';
-    $delete = '<button id="action-delete-article" data-action="delete" data-id="'.$article["id"].'" class="delete">Delete</button>';
+    $display = '<button id="action-display-article" data-action="display" data-id="'.$article[0].'" class="display">Display</button>';
+    $pending = '<button id="action-pending-article" data-action="pending" data-id="'.$article[0].'" class="pending">Remove</button>';
+    $delete = '<button id="action-delete-article" data-action="delete" data-id="'.$article[0].'" class="delete">Delete</button>';
     if($article['state'] == 'pending'){
       $html .= $display;
       $html .= $delete;
@@ -19,7 +19,7 @@
 <div id='new'>
    <form enctype="multipart/form-data" action="controller/update_upload.php" method="post">
           <p>
-            <input type="hidden" name="article_id" value="<?= $article['id'] ?>" />
+            <input type="hidden" name="article_id" value="<?= $article[0] ?>" />
       <input type="text" name="title" placeholder="Title" value="<?= $article['title'] ?>">
       <?php
             foreach ($list_tag as $key => $value) {
@@ -100,4 +100,31 @@ $('[id^="action"]').click(function(){
   });
   });
 
+</script>
+
+<script>
+$(document).ready(function(){
+    var nbCheck = 0;
+    function isChecked(elmt){
+        if( elmt.checked ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    function clickCheck(elmt){
+        if( (nbCheck < 3) || (isChecked(elmt) == false) ){
+            if( isChecked(elmt) == true ){
+                nbCheck += 1;
+            }
+            else{
+                nbCheck -= 1;
+            }
+        }
+        else{
+            elmt.checked = '';
+        }
+    }
+  });
 </script>

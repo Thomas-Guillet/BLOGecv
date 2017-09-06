@@ -5,6 +5,7 @@ include_once "/../dao/tagDao.php";
 $action = '';
 
 $flame_tag = getTagCount();
+$all_tags = getAllTags();
 
 if(isset($_GET['article']) && isset($_GET['id'])){
 	$action = 'article';
