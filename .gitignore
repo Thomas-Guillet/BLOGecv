@@ -1,2 +1,4 @@
 node_modules/
 src/connect\.php
+
+src/media/
