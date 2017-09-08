@@ -6,13 +6,24 @@ include_once "dao/articleDao.php";
 include_once "controller/setup_index.php";
 ?>
 
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php if(isset($article['title'])){
+    ?>
+      <meta property="og:title" content="<?= $article['title'] ?>" />
+    <?php
+    }
+    if(isset($article['media'])){
+      ?>
+      <meta property="og:image" content="<?= 'http://www.'.$_SERVER['HTTP_HOST'].$article['media'] ?>">
+    <?php
+    }
+    ?>
 
-    <title>ECV BLOG<?php if($action=='article'){echo ' - '.$article['title'];} ?></title>
+    <title><?php if($action=='article'){echo $article['title'];}else{ echo 'BLOGecv'; } ?></title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -149,7 +160,7 @@ include_once "controller/setup_index.php";
 </html>
 
 <div class="loading" style="display:none">
-<img src="svg-loaders/grid.svg" />
+<!-- <img src="svg-loaders/grid.svg" /> -->
 </div>
 
 <div id="modal-action" style="display: none">
