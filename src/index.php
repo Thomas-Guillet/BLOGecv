@@ -131,11 +131,18 @@ include_once "controller/setup_index.php";
                 }
                 ?>
               </div>
-              <div class="col-md-3 about">
-                à propos de nous
-                <img src="https://i.pinimg.com/736x/dc/3e/54/dc3e546cc1def8f269e5c91f1fd2bc91--cartoon-smiley-face-smiley-faces.jpg">
-                <div class="blog-content">
-                  Integer tincidunt, tortor et commodo finibus, tortor sapien lobortis libero, in convallis dui ex in nulla. Suspendisse arcu neque, facilisis ultricies venenatis id, varius sed nisl. Vivamus elementum elementum odio, eget pulvinar metus venenatis et. Vivamus luctus velit eget ante accumsan aliquet. Aenean enim ipsum, convallis et ornare et, ultricies vel nisi. Donec viverra nunc nec enim mollis, eget euismod velit vulputate. Phasellus cursus consequat finibus.
+              <div class="col-md-3">
+              <?php
+              // if($action == 'list_article'){
+                include_once('partial/bloc_list_articles.php');
+              // }
+              ?>
+                <div class="about">
+                  à propos de nous
+                  <img src="https://i.pinimg.com/736x/dc/3e/54/dc3e546cc1def8f269e5c91f1fd2bc91--cartoon-smiley-face-smiley-faces.jpg">
+                  <div class="blog-content">
+                    Integer tincidunt, tortor et commodo finibus, tortor sapien lobortis libero, in convallis dui ex in nulla. Suspendisse arcu neque, facilisis ultricies venenatis id, varius sed nisl. Vivamus elementum elementum odio, eget pulvinar metus venenatis et. Vivamus luctus velit eget ante accumsan aliquet. Aenean enim ipsum, convallis et ornare et, ultricies vel nisi. Donec viverra nunc nec enim mollis, eget euismod velit vulputate. Phasellus cursus consequat finibus.
+                  </div>
                 </div>
               </div>
             </div>

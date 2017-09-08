@@ -671,3 +671,32 @@ a:hover{
     -webkit-transform: scale(1.1,1.1);
     transform: scale(1.1,1.1);  
 }
+
+#bloc-list-articles .filter{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+#bloc-list-articles .article{
+    position: relative;
+    z-index: -2;
+    background-color: #F2F2F2;
+    color: white;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    padding-top: 15px;
+    font-family: open sans;
+    font-weight: bold;
+    padding-bottom: 25px;
+    margin-bottom: 1px;
+}
+#bloc-list-articles .article span{
+    font: inherit;
+    z-index: 1;
+}
