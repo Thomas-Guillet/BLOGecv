@@ -172,12 +172,7 @@ a:hover{
     margin-right: 3px;
 }
 #info-article{
-    border-bottom: 3px solid black;
-    font-family: open sans;
-    margin-bottom: 10px;
-    padding-bottom: 3px;
-    color: rgba(0, 0, 0, 0.50);
-    font-size: 13px;
+    margin-bottom: 25px;
 }
 #info-article .tag{
     background-color: #f83030;
@@ -217,12 +212,13 @@ a:hover{
     padding: 20px;
 }
 
-#main-article .title{
-	text-transform: uppercase;
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-family: roboto;
-    font-weight: bold;
+#main-article .header{
+    background-color: #F2F2F2;
+    margin-top: -80px;
+    /* width: 100%; */
+    /* margin-right: -10px; caractere count = 300 */
+    padding: 20px;
+    padding-top: 10px;
 }
 #main-article img{
 	margin: 30px;
@@ -231,9 +227,51 @@ a:hover{
 }
 #main-article .img{
 	text-align: center;
+    width: 100%;
+    height: 350px;
+    color: white;
+    font-size: 2.75rem;
+    font-family: roboto;
+    font-weight: bold;
+    text-align: left;
+    padding: 25px;
 }
-#main-article .content{
+#main-article .details .content{
+    /*position: absolute;*/
+    height: 309px;
+    width: 100%;
+    font-family: Open sans;
+   /* z-index: 1;
+    margin-left: -85px;
+    -moz-box-shadow: 0px 0px 15px 0px #656565;
+    -webkit-box-shadow: 0px 0px 15px 0px #656565;
+    -o-box-shadow: 0px 0px 15px 0px #656565;
+    box-shadow: 0px 0px 15px 0px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=15);*/
+}
+#main-article .details .content .writer-logo{
+    margin: inherit;
+    background-color: #F2F2F2;
+    width: 100px;
+    height: 100px;
+    margin-left: 15%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 100%;
+}
+#main-article .details .content .writer{
 
+}
+#main-article .details .content .writer span{
+    font-family: Open sans;
+    font: inherit;
+    color: #17a0e4;
+    font-weight: bold;
+}
+#main-article .details .content .date{
+}
+#main-article .details{
+    position: relative;
 }
 
 .loadingforupload {
@@ -595,7 +633,7 @@ a:hover{
     bottom: 0;
     width: 100%;
     z-index: -1;
-    white-space:nowrap;
+    white-space:nowrap; 
 }
 #last-article .tag{
     background-color: #f83030;

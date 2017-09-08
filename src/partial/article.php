@@ -20,7 +20,6 @@
 	?>	
 </div>
 <div id="info-article">
-	Par <?= $article['name'] ?> le <?= $article['created_at'] ?>
 	<?php
 	foreach ($list_tag as $key => $value) {
 	?>
@@ -30,9 +29,25 @@
 	?>
 </div>
 <div id="main-article">
-	<div class="title"><?= html_entity_decode($article['title']) ?></div>
-	<div class="img"><img src="<?= $article['media'] ?>"></div>
-	<div class="content"><?= html_entity_decode($article['content']) ?></div>
+	<div class="img" style ="background-image: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url(<?= $article['media'] ?>);background-size: cover;background-position: center;"><div class="title"><?= html_entity_decode($article['title']) ?></div></div>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="details">
+					<div class="content">
+					<div class="writer-logo" style="background-image: url(http://image.jeuxvideo.com/medias-md/150489/1504886177-3352-card.jpg);background-size: cover;background-position: center;">
+						
+					</div>						
+					<!-- <img src="http://image.jeuxvideo.com/medias-md/150489/1504886177-3352-card.jpg"> -->
+						<div class="writer">Par <span>Thomas</span></div>
+						<div class="date">Le 28/08/17</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10 header">
+				<div class="content"><?= html_entity_decode($article['content']) ?></div>
+			</div>
+		</div>
 </div>
 <hr/>
 <div id="comment">
