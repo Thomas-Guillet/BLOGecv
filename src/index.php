@@ -148,7 +148,8 @@ include_once "controller/setup_index.php";
   </body>
 </html>
 
-<div class="loadingforupload" style="display:block">
+<div class="loading" style="display:none">
+<img src="svg-loaders/grid.svg" />
 </div>
 
 <div id="modal-action" style="display: none">
@@ -170,12 +171,7 @@ include_once "controller/setup_index.php";
 
 <script>
 $( document ).ready(function() {
-    $('.loadingforupload').fadeToggle(800, "linear");
-
-});
-
-$('a').click(function(e){
-  $('.loadingforupload').fadeToggle(10, "linear");
+    // $('.loading').fadeToggle(800, "linear");
 });
 
 $('#cancel-modal').click(function(){

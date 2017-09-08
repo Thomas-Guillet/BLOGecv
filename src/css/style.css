@@ -274,16 +274,24 @@ a:hover{
     position: relative;
 }
 
-.loadingforupload {
+.loading {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 1);
+    background: #F8F8F8;
     z-index: 10000;
     height: 100%;
     width: 100%;
     text-align: center;
     color: #FFF;
+}
+.loading img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
 }
 #modal-action{
     position: fixed;
